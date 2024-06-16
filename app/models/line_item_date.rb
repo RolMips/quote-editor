@@ -11,4 +11,8 @@ class LineItemDate < ApplicationRecord
   def previous_date
     quote.line_item_dates.ordered.where(date: ...date).last
   end
+
+  def total_price
+    line_items.sum(&:total_price)
+  end
 end

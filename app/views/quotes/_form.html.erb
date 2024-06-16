@@ -1,6 +1,10 @@
 <%= simple_form_for quote, html: { class: "quote form" } do |f| %>
   <%= form_error_notification(quote) %>
   <%= f.input :name, input_html: { autofocus: true } %>
-  <%= f.submit class: "btn btn--secondary" %>
-    <%= link_to "Cancel", quotes_path, class: "btn btn--light" %>
+   <%= button_tag(type: 'submit', class: "btn btn--secondary") do %>
+    <i class="fas fa-lg fa-check"></i>
+  <% end %>
+  <%= link_to quotes_path, class: "btn btn--light" do %>
+    <i class="fas fa-xl fa-xmark"></i>
+  <% end %>
 <% end %>

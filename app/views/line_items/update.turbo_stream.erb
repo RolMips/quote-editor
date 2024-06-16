@@ -2,4 +2,12 @@
   <%= render @line_item, quote: @quote, line_item_date: @line_item_date %>
 <% end %>
 
+<%= turbo_stream.update nested_dom_id(@line_item_date, :total) do %>
+  <%= render "line_item_dates/sub_total", line_item_date: @line_item_date %>
+<% end %>
+
+<%= turbo_stream.update dom_id(@quote, :total) do %>
+  <%= render "quotes/total", quote: @quote %>
+<% end %>
+
 <%= render_turbo_stream_flash_messages %>

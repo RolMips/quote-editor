@@ -1,16 +1,18 @@
 .btn {
+    position: relative;
     display: inline-block;
-    padding: var(--space-xxs) var(--space-m);
+    font-family: var(--font-family-sans);
+    padding: var(--space-xs) var(--space-xs);
     border-radius: var(--border-radius);
-    background-origin: border-box; // Invisible borders with linear gradients
+    background-origin: border-box;
     background-color: transparent;
     border: solid 2px transparent;
-    font-weight: bold;
+    font-weight: 700;
     text-decoration: none;
     cursor: pointer;
     outline: none;
-    transition: filter 400ms, color 200ms;
-  
+    transition: filter 400ms,color 200ms;
+
     &:hover,
     &:focus,
     &:focus-within,

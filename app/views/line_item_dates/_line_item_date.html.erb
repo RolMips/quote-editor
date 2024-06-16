@@ -7,14 +7,16 @@
         </h2>
 
         <div class="line-item-date__actions">
-          <%= button_to "Delete",
-                        [quote, line_item_date],
+          <%= button_to [quote, line_item_date],
                         method: :delete,
                         form: { data: { turbo_confirm: "Are you sure?" } },
-                        class: "btn btn--light" %>
-          <%= link_to "Edit",
-                      [:edit, quote, line_item_date],
-                      class: "btn btn--light" %>
+                        class: "btn btn--light" do %>
+                          <i class="far fa-lg fa-trash-can"></i>
+                        <% end %>
+          <%= link_to [:edit, quote, line_item_date],
+                      class: "btn btn--light" do %>
+                        <i class="far fa-lg fa-pen-to-square"></i>
+                      <% end %>
         </div>
       </div>
     <% end %>
@@ -27,6 +29,9 @@
       </div>
       <%= turbo_frame_tag nested_dom_id(line_item_date, "line_items") do %>
         <%= render line_item_date.line_items, quote: quote, line_item_date: line_item_date %>
+      <% end %>
+      <%= turbo_frame_tag nested_dom_id(line_item_date, :total) do %>
+        <%= render "line_item_dates/sub_total", line_item_date: line_item_date %>
       <% end %>
       <%= turbo_frame_tag nested_dom_id(line_item_date, LineItem.new) %>
       <div class="line-item-date__footer">

@@ -17,14 +17,17 @@
     <div class="line-item__price">
       <%= number_to_currency line_item.unit_price %>
     </div>
-    <div class="line-item__actions">
-      <%= button_to "Delete",
-                    [quote, line_item_date, line_item],
+    <div class="line-item__actions line-item__actions__cluster">
+      <%= button_to [quote, line_item_date, line_item],
                     method: :delete,
-                    class: "btn btn--light" %>
-      <%= link_to "Edit",
-                  [:edit, quote, line_item_date, line_item],
-                  class: "btn btn--light" %>
+                    class: "btn btn--light" do %>
+                      <i class="far fa-lg fa-trash-can"></i>
+                    <% end %>
+      <%= link_to [:edit, quote, line_item_date, line_item],
+                    class: "btn btn--light" do %>
+                      <i class="far fa-lg fa-pen-to-square"></i>
+                    <% end %>
+
     </div>
   </div>
 <% end %>

@@ -4,13 +4,16 @@
                 quote_path(quote),
                 data: { turbo_frame: "_top" } %>
     <div class="quote__actions">
-      <%= button_to "Delete",
-                    quote_path(quote),
+      <%= button_to quote_path(quote),
                     method: :delete,
-                    class: "btn btn--light" %>
-      <%= link_to "Edit",
-                  edit_quote_path(quote),
-                  class: "btn btn--light" %>
+                    form: { data: { turbo_confirm: "Are you sure?" } },
+                    class: "btn btn--light" do %>
+                      <i class="far fa-lg fa-trash-can"></i>
+                    <% end %>
+      <%= link_to edit_quote_path(quote),
+                    class: "btn btn--light" do %>
+                      <i class="far fa-lg fa-pen-to-square"></i>
+                    <% end %>
     </div>
   </div>
 <% end %>

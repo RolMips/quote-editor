@@ -1,5 +1,9 @@
 .navbar {
+    position: sticky;
     display: flex;
+    top: 0;
+    z-index: 10;
+    flex-direction: row;
     align-items: center;
     box-shadow: var(--shadow-large);
     padding: var(--space-xs) var(--space-m);

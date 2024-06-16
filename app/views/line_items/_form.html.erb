@@ -10,11 +10,14 @@
               wrapper_html: { class: "line-item__quantity" } %>
   <%= f.input :unit_price,
               wrapper_html: { class: "line-item__price" } %>
+  <div class="line-item__actions line-item__actions__cluster">
+    <%= button_tag(type: 'submit', class: "btn btn--secondary") do %>
+      <i class="fas fa-lg fa-check"></i>
+    <% end %>
+    <%= link_to quote_path(quote), class: "btn btn--light" do %>
+      <i class="fas fa-xl fa-xmark"></i>
+    <% end %>
+  </div>
   <%= f.input :description,
               wrapper_html: { class: "line-item__description" } %>
-
-  <div class="line-item__actions">
-    <%= link_to "Cancel", quote_path(quote), class: "btn btn--light" %>
-    <%= f.submit class: "btn btn--secondary" %>
-  </div>
 <% end %>
